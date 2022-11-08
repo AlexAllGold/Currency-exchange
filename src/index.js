@@ -1,10 +1,6 @@
-import Post from "./Post";
-import './styles/styles.css';
-import WebpackLogo from './assets/webpack-logo.png';
-import json from "./assets/json";
+import Post from './Post';
+import './styles/styles.scss';
 
-const post = new Post('ToString', WebpackLogo);
+const post = new Post('ToString');
 
 console.log('Post to string: ', post.toString());
-
-console.log('Json: ', json);
