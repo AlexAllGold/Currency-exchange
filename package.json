@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/AlexAllGold/Currency-exchange.git"
   },
-  "browserslist": "> 5%",
+  "browserslist": ["> 5%"],
   "keywords": [
     "js",
     "javascript",
@@ -37,10 +37,11 @@
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
-    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "sass": "^1.56.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
