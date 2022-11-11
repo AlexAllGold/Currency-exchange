@@ -1,76 +1,75 @@
-const path = require('path');
+const path = require('path')
 
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//! !!!
-const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-//! !!!
-const TerserWebpackPlugin = require('terser-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+
+const isDev = process.env.NODE_ENV === 'development'
+const isProd = !isDev
+const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
 const optimization = () => {
   const config = {
     splitChunks: {
-      chunks: 'all',
-    },
-  };
-  if (isProd) {
-    config.minimizer = [
-      new OptimizeCssAssetWebpackPlugin(),
-      new TerserWebpackPlugin(),
-    ];
+      chunks: 'all'
+    }
   }
-  return config;
-};
+  if (isProd) {
+    config.minimizer = [new CssMinimizerPlugin(), new TerserWebpackPlugin()]
+  }
+  return config
+}
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: './index.js',
+    main: './index.js'
   },
   output: {
     filename: filename('js'),
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   resolve: {
     extensions: ['.js', '.json'],
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),
-      '@': path.resolve(__dirname, 'src'),
-    },
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   optimization: optimization(),
   devServer: {
     port: 4200,
-    hot: isDev,
+    hot: isDev
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html',
       minify: {
-        collapseWhitespace: isProd,
-      },
+        collapseWhitespace: isProd
+      }
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: filename('css'),
-    }),
+      filename: filename('css')
+    })
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-          options: {},
-        }, 'css-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          'css-loader'
+        ]
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
-        use: ['file-loader'],
+        use: ['file-loader']
       },
       {
         test: /\.m?js$/,
@@ -78,23 +77,21 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      }, {
-        test: /\.s[ac]ss$/i,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-          options: {},
-        },
-        // Creates `style` nodes from JS strings
-        'style-loader',
-        // Translates CSS into CommonJS
-        'css-loader',
-        // Compiles Sass to CSS
-        'sass-loader',
-        ],
+            presets: ['@babel/preset-env']
+          }
+        }
       },
-    ],
-  },
-};
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader'
+        ]
+      }
+    ]
+  }
+}

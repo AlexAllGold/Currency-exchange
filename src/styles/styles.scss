@@ -1,17 +1,94 @@
 @import "~normalize.css";
+:root {
+    --mainColor: #fdd08f;
+    --black : #000;
+    --orange : #ff9501;
+    --grey : #a6a6a6;
+    --white : #fdfdfd;
+}
 .container {
-    padding-top: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    margin: 50px auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 25px;
+    background: var(--mainColor);
+    color: var(--black);
+    font-family: "Gill Sans", sans-serif;
+    padding: 10px;
+    box-shadow: 4px 4px 4px #d5a867;
 }
 
-h1 {
-    text-align: center;
+.link {
+    padding-right: 10px;
+    text-align: right;
+    font-size: 15px;
 }
+.title {
+    padding-left: 10px;
+    text-align: left;
+    font-size: 30px;
+}
+a {
+    padding-right: 10px;
+    text-align: right;
+    font-size: 15px;
+}
+//h1 {
+//    padding-left: 15px;
+//    text-align: left;
+//}
 
-.logo {
-    background-size: cover;
-    height: 200px;
-    width: 200px;
-    margin: 0 auto;
-}
+//.calc-screen {
+//    height: 125px;
+//    padding: 10px;
+//    display: grid;
+//    justify-items: end;
+//    align-items: end;
+//    margin-bottom: 25px;
+//    overflow: auto;
+//}
+//.calc-screen span {
+//    text-align: right;
+//    font-size: 4rem;
+//    margin: 0;
+//}
+//
+//.buttons {
+//    display: grid;
+//    grid-template-areas:
+//    "ac plus-minus percent division"
+//    "seven eight nine multi"
+//    "four five six minus"
+//    "one two three plus"
+//    "zero zero dot equals";
+//    grid-gap: 7px;
+//    justify-items: center;
+//}
+//.btn {
+//    width: 60px;
+//    height: 60px;
+//    background: #333;
+//    border-radius: 50%;
+//    text-align: center;
+//    line-height: 63px;
+//    font-size: 1.5rem;
+//    cursor: pointer;
+//    user-select: none;
+//}
+//.btn.zero {
+//    grid-area: zero;
+//    width: 100%;
+//    border-radius: 34px;
+//}
+//.btn:hover {
+//    filter: brightness(120%);
+//}
+//.btn:active {
+//    filter: brightness(90%);
+//}
+//.btn.bg-grey {
+//    background: var(--grey);
+//}
+//.btn.bg-orange {
+//    background: var(--orange);
+//}
