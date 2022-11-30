@@ -11,27 +11,35 @@
 <body>
 
 <div class="container">
-    <div class="title">Operations
-        <a href="./src/component/exchange.js">"Exchange"</a>
-        <a href="./src/component/buy.js">"Buy"</a>
-        <a href="./src/component/sell.js">"Sell"</a>
-        <a href="./src/component/send.js">"Send"</a>
+    <div class="top">
+    <h1>Operations</h1>
+        <div class="links">
+    <a href="">Exchange</a>
+    <a href="">Buy</a>
+    <a href="">Sell</a>
+    <a href="">Send</a>
+        </div>
     </div>
-    <input type="text" list="currency"/>
-    <datalist id="currency">
-        <option value="Dollar"></option>
-        <option value="Franck"></option>
-        <option value="Euro"></option>
-        <option value="Hryvnia"></option>
-    </datalist>
-    <button id="reverse"><></button>
-    <input type="text" list="currency1"/>
-    <datalist id="currency1">
-        <option value="Dollar"></option>
-        <option value="Franck"></option>
-        <option value="Euro"></option>
-        <option value="Hryvnia"></option>
-    </datalist>
+    <div class="currency">
+        <select>
+        <option value="USD">Dollar</option>
+        </select>
+        <select class="result-currency">
+            <option id="res1" value="BTC">Bitcoin</option>
+        </select>
+    </div>
+    <button id="revers"></button>
+    <div class="input-exchange-value">
+        <input class="initial-value" name="initial-value" type="number"></input>
+        <input class="result-value" name="result-value" type="number"></input>
+        <button class="exchange">Exchange</button>
+    </div>
+    <div class="down">
+        <div class="info"></div>
+        <h3 id="available">Available: $777...</h3>
+        <h3 id="rate">Rate: 1.00 USD = 3.5 Grn</h3>
+        <h3 id="fee">Fee: 13.17 USD</h3>
+    </div>
 </div>
 
 </body>

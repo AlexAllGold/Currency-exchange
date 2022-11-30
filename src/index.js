@@ -1,10 +1,15 @@
-import Exchange from './component/exchange'
-import Buy from './component/buy'
-import Sell from './component/sell'
-import Send from './component/send'
-import Post from './Post'
 import './styles/styles.scss'
+import { CurrencyService } from './services/currencyService'
+import { StoreExchange } from './store/storeExchange'
+import { ResultComponent } from './components/resultComponent'
+import { CommonComponent } from './components/commonComponent'
+import { CurrencySelectComponent } from './components/currencySelectComponent'
 
-const post = new Post('ToString')
+const store = new StoreExchange()
+const service = new CurrencyService(store)
+const currencyComponent = new CurrencySelectComponent(store)
+const resultComponent = new ResultComponent(store, service)
 
-console.log('Post to string: ', post.toString())
+service.getCurrencies().then(() => currencyComponent.renderOptions())
+
+new CommonComponent('.exchange').setClick(resultComponent.exchange.bind(resultComponent))

@@ -1,26 +1,26 @@
-const path = require('path')
+const path = require('path');
 
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const TerserWebpackPlugin = require('terser-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
-const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
+const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 const optimization = () => {
   const config = {
     splitChunks: {
       chunks: 'all'
     }
-  }
+  };
   if (isProd) {
-    config.minimizer = [new CssMinimizerPlugin(), new TerserWebpackPlugin()]
+    config.minimizer = [new CssMinimizerPlugin(), new TerserWebpackPlugin()];
   }
-  return config
-}
+  return config;
+};
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -94,4 +94,4 @@ module.exports = {
       }
     ]
   }
-}
+};

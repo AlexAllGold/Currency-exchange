@@ -1,4 +1,4 @@
-class RequestBuilder {
+export class RequestBuilder {
   sendRequest(method, url, body = null) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
@@ -20,5 +20,8 @@ class RequestBuilder {
       xhr.send(JSON.stringify(body))
     })
   }
+  // get(url, body = null){
+  //   return this.sendRequest('GET', url, body)
+  // }
   // sendRequest('GET', url).then(data => console.log(data)).catch(err => console.log(err))
 }

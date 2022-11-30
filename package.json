@@ -9,7 +9,7 @@
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
     "eslint": "eslint .",
-    "eslint:fix": "eslint . --fixes",
+    "eslint:fix": "eslint . --fix",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
   },
@@ -63,6 +63,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.10.2",
     "normalize.css": "^8.0.1",
     "stylelint-config-rational-order": "^0.0.4",
     "stylelint-config-standard": "^29.0.0",
