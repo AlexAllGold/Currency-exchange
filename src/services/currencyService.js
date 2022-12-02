@@ -1,27 +1,25 @@
-import { StoreExchange } from '../store/storeExchange'
-import { RequestBuilder } from '../util/requestBuilder'
-import { CurrencySelectComponent } from '../components/currencySelectComponent'
+import { Store } from '../store'
+import { RequestBuilder } from '../utils/requestBuilder'
 
 export class CurrencyService {
   #store
 
-  #component
+  #http
 
   #url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=5&currency=EUR'
 
-  constructor(store, component) {
-    if (store instanceof StoreExchange) {
+  constructor(store, http) {
+    if (store instanceof Store) {
       this.#store = store
     }
-    if (component instanceof CurrencySelectComponent) {
-      this.#component = component
+    if (http instanceof RequestBuilder) {
+      this.#http = http
     }
   }
 
   getCurrencies() {
-    const builder = new RequestBuilder()
-    return builder
-      .sendRequest('GET', this.#url)
+    return this.#http
+      .get(this.#url)
       .then(({ coins }) => this.#store.setState({ coins }))
       .catch(err => console.error(err))
   }

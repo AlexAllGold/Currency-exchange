@@ -20,8 +20,8 @@ export class RequestBuilder {
       xhr.send(JSON.stringify(body))
     })
   }
-  // get(url, body = null){
-  //   return this.sendRequest('GET', url, body)
-  // }
-  // sendRequest('GET', url).then(data => console.log(data)).catch(err => console.log(err))
+
+  get(url, body = null) {
+    return this.sendRequest('GET', url, body)
+  }
 }

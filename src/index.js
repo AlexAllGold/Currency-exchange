@@ -1,15 +1,15 @@
 import './styles/styles.scss'
-import { CurrencyService } from './services/currencyService'
-import { StoreExchange } from './store/storeExchange'
-import { ResultComponent } from './components/resultComponent'
-import { CommonComponent } from './components/commonComponent'
-import { CurrencySelectComponent } from './components/currencySelectComponent'
+import { CurrencyService } from './services'
+import { Store } from './store'
+import { CommonComponent, ResultComponent, CurrencySelectComponent } from './components'
+import { RequestBuilder } from './utils'
 
-const store = new StoreExchange()
-const service = new CurrencyService(store)
-const currencyComponent = new CurrencySelectComponent(store)
+const store = new Store()
+const http = new RequestBuilder()
+const service = new CurrencyService(store, http)
+const currencyComponent = new CurrencySelectComponent(store, service)
+currencyComponent.renderElement()
+currencyComponent.renderOptions()
 const resultComponent = new ResultComponent(store, service)
-
-service.getCurrencies().then(() => currencyComponent.renderOptions())
 
 new CommonComponent('.exchange').setClick(resultComponent.exchange.bind(resultComponent))

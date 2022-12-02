@@ -1,12 +1,10 @@
-export class StoreExchange {
+export class Store {
   #coins = []
-
-  #initial = '0'
 
   #result = '0'
 
   getState() {
-    return { result: this.#result, initial: this.#initial, coins: this.#coins }
+    return { result: this.#result, coins: this.#coins }
   }
 
   setState({ coins, result }) {
