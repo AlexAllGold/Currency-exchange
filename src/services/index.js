@@ -1,1 +1,1 @@
-export { CurrencyService } from './currencyService'
+export { CurrencyService } from './currencyService';

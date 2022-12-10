@@ -1,1 +1,1 @@
-export { RequestBuilder } from './requestBuilder'
+export { RequestBuilder } from './requestBuilder';

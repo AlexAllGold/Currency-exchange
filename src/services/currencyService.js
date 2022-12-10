@@ -1,19 +1,19 @@
-import { Store } from '../store'
-import { RequestBuilder } from '../utils/requestBuilder'
+import { Store } from '../store';
+import { RequestBuilder } from '../utils/requestBuilder';
 
 export class CurrencyService {
-  #store
+  #store;
 
-  #http
+  #http;
 
-  #url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=5&currency=EUR'
+  #url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=5&currency=EUR';
 
   constructor(store, http) {
     if (store instanceof Store) {
-      this.#store = store
+      this.#store = store;
     }
     if (http instanceof RequestBuilder) {
-      this.#http = http
+      this.#http = http;
     }
   }
 
@@ -21,6 +21,6 @@ export class CurrencyService {
     return this.#http
       .get(this.#url)
       .then(({ coins }) => this.#store.setState({ coins }))
-      .catch(err => console.error(err))
+      .catch(err => console.error(err));
   }
 }

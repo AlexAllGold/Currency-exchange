@@ -1,33 +1,34 @@
-import { Store } from '../store'
-import { CurrencyService } from '../services'
-import { CommonComponent } from './commonComponent'
+import { Store } from '../store';
+import { CurrencyService } from '../services';
+import { CommonComponent } from './commonComponent';
 
 export class ResultComponent extends CommonComponent {
-  #store
+  #store;
 
-  #service
+  #service;
 
   constructor(store, service) {
-    super('.result-value')
+    super('.result-value');
     if (store instanceof Store) {
-      this.#store = store
+      this.#store = store;
     }
     if (service instanceof CurrencyService) {
-      this.#service = service
+      this.#service = service;
     }
   }
 
   exchange({ target }) {
-    const initialValue = Number(document.querySelector('.initial-value').value)
-    const currentCurrency = document.querySelector('.result-currency').value
-    const { price } = this.#store.getState().coins.find(item => item.symbol === currentCurrency)
-    this.#store.setState({ result: parseInt(initialValue * price * 100, 10) / 100 })
+    const initialValue = Number(document.querySelector('.initial-value').value);
+    const currentCurrency = document.querySelector('.result-currency').value;
+    const selectedCoin = this.#store.getState().coins?.find(item => item.symbol === currentCurrency);
+    const price = selectedCoin?.price;
+    this.#store.setState({ result: parseInt(initialValue * price * 100, 10) / 100 });
     if (target.classList.contains('exchange')) {
-      this.#render()
+      this.#render();
     }
   }
 
   #render() {
-    this.getComponent().value = this.#store.getState().result
+    this.getComponent().value = this.#store.getState().result;
   }
 }

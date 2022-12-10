@@ -1,27 +1,27 @@
 export class RequestBuilder {
   sendRequest(method, url, body = null) {
     return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest()
+      const xhr = new XMLHttpRequest();
 
-      xhr.open(method, url)
-      xhr.responseType = 'json'
-      xhr.setRequestHeader('Content-Type', 'application/json')
+      xhr.open(method, url);
+      xhr.responseType = 'json';
+      xhr.setRequestHeader('Content-Type', 'application/json');
 
       xhr.onload = () => {
         if (xhr.status >= 400) {
-          reject(xhr.response)
+          reject(xhr.response);
         } else {
-          resolve(xhr.response)
+          resolve(xhr.response);
         }
-      }
+      };
       xhr.onerror = () => {
-        reject(xhr.response)
-      }
-      xhr.send(JSON.stringify(body))
-    })
+        reject(xhr.response);
+      };
+      xhr.send(JSON.stringify(body));
+    });
   }
 
   get(url, body = null) {
-    return this.sendRequest('GET', url, body)
+    return this.sendRequest('GET', url, body);
   }
 }

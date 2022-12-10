@@ -1,14 +1,14 @@
 export class Store {
-  #coins = []
+  #coins = [];
 
-  #result = '0'
+  #result = '0';
 
   getState() {
-    return { result: this.#result, coins: this.#coins }
+    return { result: this.#result, coins: this.#coins };
   }
 
   setState({ coins, result }) {
-    this.#coins = coins || this.#coins
-    this.#result = result || this.#result
+    this.#coins = coins || this.#coins;
+    this.#result = result || this.#result;
   }
 }
