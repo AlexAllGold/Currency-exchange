@@ -1,36 +1,30 @@
 {
+  "author": "AlexallGold",
+  "license": "ISC",
   "name": "currency-exchange",
   "version": "1.0.0",
   "description": "webpack",
   "private": true,
+  "homepage": "https://github.com/AlexAllGold/Currency-exchange#readme",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix",
-    "stylelint": "stylelint '**/*{.css,.scss}'",
-    "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:format": "prettier --write .",
+    "lint:style": "stylelint '**/*{.css,.scss}'",
+    "lint:style:fix": "stylelint '**/*{.css,.scss}' --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlexAllGold/Currency-exchange.git"
+  "dependencies": {
+    "bootstrap-icons": "^1.10.2",
+    "normalize.css": "^8.0.1",
+    "stylelint-config-rational-order": "^0.0.4",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0"
   },
-  "browserslist": [
-    "> 5%, not dead"
-  ],
-  "keywords": [
-    "js",
-    "javascript",
-    "webpack"
-  ],
-  "author": "AlexallGold",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlexAllGold/Currency-exchange/issues"
-  },
-  "homepage": "https://github.com/AlexAllGold/Currency-exchange#readme",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
@@ -46,9 +40,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
+    "postcss-less": "^6.0.0",
     "prettier": "2.7.1",
     "sass": "^1.56.1",
     "sass-loader": "^13.1.0",
@@ -62,12 +56,19 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
   },
-  "dependencies": {
-    "bootstrap-icons": "^1.10.2",
-    "normalize.css": "^8.0.1",
-    "stylelint-config-rational-order": "^0.0.4",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.3.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexAllGold/Currency-exchange.git"
+  },
+  "browserslist": [
+    "> 5%, not dead"
+  ],
+  "keywords": [
+    "js",
+    "javascript",
+    "webpack"
+  ],
+  "bugs": {
+    "url": "https://github.com/AlexAllGold/Currency-exchange/issues"
   }
 }
