@@ -1,4 +1,4 @@
-import { CommonComponent, Input } from '@/common';
+import { CommonComponent, Input } from '@/components/common';
 import { Button } from './Button';
 import { Store } from '@/store';
 import { CoinInput } from './CoinInput';

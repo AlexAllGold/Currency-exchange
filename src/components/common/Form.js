@@ -3,7 +3,7 @@ import { CoinsService } from '@/services';
 import { Header } from '@/components/Header';
 import { SelectsWrapper } from '@/components/Selects';
 import { InputWrapper } from '@/components/Input';
-import { CommonComponent } from '@/common/CommonComponent';
+import { CommonComponent } from './CommonComponent';
 
 export class Form extends CommonComponent {
   #store;

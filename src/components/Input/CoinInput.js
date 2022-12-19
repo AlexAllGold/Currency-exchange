@@ -1,4 +1,4 @@
-import { Input } from '@/common';
+import { Input } from '@/components/common';
 import { Store } from '@/store';
 
 export class CoinInput extends Input {

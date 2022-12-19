@@ -1,4 +1,4 @@
-import { CommonComponent } from '@/common';
+import { CommonComponent } from '@/components/common';
 import { Store } from '@/store';
 import { CoinsService } from '@/services';
 import { Events, TagNames } from '@/utils';
