@@ -1,102 +1,111 @@
-@import "~normalize.css";
+@import url('~normalize.css');
+
 :root {
-    --main-color: #fdd08f;
-    --darck-grey : #686666;
-    --grey : #a6a6a6;
-    --white : #fdfdfd;
+  --main-color: #fdd08f;
+  --darck-grey: #686666;
+  --grey: #a6a6a6;
+  --white: #fdfdfd;
 }
+
 .app {
-    margin: 50px auto;
-    width: 500px;
-    height: 300px;
-    border-radius: 25px;
-    background: var(--main-color);
-    color: var(--black);
-    font-family: "Gill Sans", sans-serif;
-    padding: 10px;
-    box-shadow: 4px 4px 4px #d5a867;
-    position: relative;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  margin: 50px auto;
+  padding: 10px;
+  color: var(--black);
+  font-family: 'Gill Sans', sans-serif;
+  background: var(--main-color);
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px #d5a867;
 }
 
 h1 {
-    padding-top: 10px;
-    padding-left: 15px;
-    text-align: left;
+  padding-top: 10px;
+  padding-left: 15px;
+  text-align: left;
 }
+
 .links {
-    position: absolute;
-    top: 45px; right: 40px;
+  position: absolute;
+  top: 45px;
+  right: 40px;
 }
 
 a {
-    color: var(--black);
-    font-size: 15px;
-    font-family: "Gill Sans", sans-serif;
+  color: var(--black);
+  font-size: 15px;
+  font-family: 'Gill Sans', sans-serif;
 }
+
 .currency {
-    font-size: 20px;
-    position: absolute;
-    top: 90px;
-    left: 30px;
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  font-size: 20px;
 }
+
 .input-exchange-value {
-    font-size: 20px;
-    position: absolute;
-    top: 170px;
-    left: 30px;
+  position: absolute;
+  top: 170px;
+  left: 30px;
+  font-size: 20px;
 }
+
 select {
-    padding-left: 50px;
-    background: var(--white);
-    border: none;
-    border-radius: 15px;
-    margin-left: 10px;
-    width: 215px;
-    height: 60px;
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  width: 215px;
+  height: 60px;
+  margin-left: 10px;
+  padding-left: 50px;
+  background: var(--white);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
 }
+
 input {
-    background: var(--white);
-    border: none;
-    border-radius: 15px;
-    margin-left: 10px;
-    width: 210px;
-    height: 55px;
-    cursor: pointer;
-    user-select: none;
-    outline: none;
+  width: 210px;
+  height: 55px;
+  margin-left: 10px;
+  background: var(--white);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
 }
+
 .exchange {
-    position: absolute;
-    top: 70px;
-    left: 235px;
-    background: var(--darck-grey);
-    color: var(--white);
-    border: none;
-    border-radius: 15px;
-    width: 215px;
-    height: 55px;
-    cursor: pointer;
+  position: absolute;
+  top: 70px;
+  left: 235px;
+  width: 215px;
+  height: 55px;
+  color: var(--white);
+  background: var(--darck-grey);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .down {
-    font-size: 10px;
-    position: absolute;
-    top: 230px;
-    left: 30px;
+  position: absolute;
+  top: 230px;
+  left: 30px;
+  font-size: 10px;
 }
 
 button:active {
-    filter: brightness(90%);
+  filter: brightness(90%);
 }
+
 input:active {
-    filter: brightness(90%);
+  filter: brightness(90%);
 }
+
 select:active {
-    filter: brightness(90%);
+  filter: brightness(90%);
 }
