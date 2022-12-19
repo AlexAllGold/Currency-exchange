@@ -1,6 +1,6 @@
 import { CommonComponent } from './CommonComponent';
 import { Store } from '@/store';
-import { TagNames } from '@/utils';
+import { TagNames, Events, Attributes } from '@/utils';
 
 export class Input extends CommonComponent {
   #store;
@@ -14,15 +14,15 @@ export class Input extends CommonComponent {
 
   renderInput(className) {
     this.#addTags(className);
-    this.renderElement('.input-exchange-value', this.getComponent());
-    this.getComponent().addEventListener('change', event => {
+    this.getComponent().addEventListener(Events.CHANGE, event => {
       this.#store.setState({ initialValue: event.target.value });
     });
+    return this.getComponent();
   }
 
   #addTags(className) {
     this.addClassName(className);
-    this.addAttribute('number');
+    this.addAttribute(Attributes.NUMBER);
     this.addValue(1);
   }
 }

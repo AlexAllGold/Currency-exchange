@@ -16,13 +16,18 @@ export class InputWrapper extends CommonComponent {
 
   renderComponents() {
     this.addClassName('input-exchange-value');
-    this.renderElement(TagNames.APP, this.getComponent());
+    const currencyInput = new Input(this.#store);
 
-    new Input(this.#store).renderInput('initial-value');
-    new Button(this.#store).renderButton(this.#store);
+    const button = new Button(this.#store);
+
     const coinsInput = new CoinInput(this.#store);
-    coinsInput.renderInput('result-value');
 
+    this.appendChildren(
+      currencyInput.renderInput('initial-value'),
+      button.renderButton(),
+      coinsInput.renderInput('result-value')
+    );
     this.#store.subscribe(coinsInput);
+    return this.getComponent();
   }
 }

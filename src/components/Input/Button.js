@@ -1,6 +1,6 @@
 import { CommonComponent } from '@/common';
 import { Store } from '@/store';
-import { TagNames } from '@/utils';
+import { TagNames, Events } from '@/utils';
 
 export class Button extends CommonComponent {
   #store;
@@ -13,13 +13,13 @@ export class Button extends CommonComponent {
   }
 
   renderButton() {
-    this.addClassName('exchange');
-    this.addInnerHTML('Exchange');
-    this.renderElement('.input-exchange-value', this.getComponent());
-    this.getComponent().addEventListener('click', this.#exchange.bind(this));
+    this.addClassName('exchange').addInnerHTML('Exchange');
+    this.getComponent().addEventListener(Events.CLICK, this.#exchange.bind(this));
+    return this.getComponent();
   }
 
-  #exchange() {
+  #exchange(event) {
+    event.preventDefault();
     const { initialValue } = this.#store.getState();
     const price = this.#getPrice();
     this.#store.setState({ result: this.#rounding(initialValue, price) });

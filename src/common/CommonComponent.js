@@ -1,4 +1,4 @@
-import { TagNames } from '@/utils';
+import { Attributes, TagNames } from '@/utils';
 
 export class CommonComponent {
   #element;
@@ -13,23 +13,23 @@ export class CommonComponent {
 
   addClassName(classname) {
     this.#element.className = classname;
-    return this.#element;
+    return this;
   }
 
   addValue(value) {
     this.#element.value = value;
-    return this.#element;
+    return this;
   }
 
   addInnerHTML(text) {
     this.#element.innerHTML = text;
-    return this.#element;
+    return this;
   }
 
   addAttribute(attribute, value) {
-    this.#element.setAttribute('type', attribute);
-    this.#element.setAttribute('value', value);
-    return this.#element;
+    this.#element.setAttribute(Attributes.TYPE, attribute);
+    this.#element.setAttribute(Attributes.VALUE, value);
+    return this;
   }
 
   addOptions(item) {
@@ -37,13 +37,18 @@ export class CommonComponent {
     option.addInnerHTML(item.name);
     option.addValue(item.symbol);
     this.getComponent().appendChild(option.getComponent());
-  }
-
-  renderElement(toClass, className) {
-    return document.querySelector(toClass).appendChild(className);
+    return this;
   }
 
   isDisabled(isDisabled) {
-    return this.#element.toggleAttribute('disabled', isDisabled);
+    this.#element.toggleAttribute(Attributes.DISABLED, isDisabled);
+    return this;
+  }
+
+  appendChildren(...children) {
+    children.forEach(child => {
+      this.getComponent().appendChild(child);
+    });
+    return this;
   }
 }

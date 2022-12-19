@@ -1,3 +1,3 @@
 export { HttpClient } from './httpClient';
-export { TagNames } from './constants';
+export { TagNames, Events, Attributes } from './constants';
 export { roundCoin } from './roundCoin';

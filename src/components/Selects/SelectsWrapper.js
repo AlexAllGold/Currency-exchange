@@ -22,8 +22,10 @@ export class SelectsWrapper extends CommonComponent {
 
   renderComponents() {
     this.addClassName('currency');
-    this.renderElement(TagNames.APP, this.getComponent());
-    new CurrenciesSelect(this.#store, this.#service).renderCurrenciesSelect();
-    new CoinsSelect(this.#store, this.#service).renderCoinsSelect();
+    const currenciesSelect = new CurrenciesSelect(this.#store, this.#service).renderCurrenciesSelect();
+    const coinsSelect = new CoinsSelect(this.#store, this.#service).renderCoinsSelect();
+
+    this.appendChildren(currenciesSelect, coinsSelect);
+    return this.getComponent();
   }
 }

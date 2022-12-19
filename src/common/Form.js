@@ -3,13 +3,15 @@ import { CoinsService } from '@/services';
 import { Header } from '@/components/Header';
 import { SelectsWrapper } from '@/components/Selects';
 import { InputWrapper } from '@/components/Input';
+import { CommonComponent } from '@/common/CommonComponent';
 
-export class RenderComponent {
+export class Form extends CommonComponent {
   #store;
 
   #service;
 
   constructor(store, service) {
+    super('form');
     if (store instanceof Store) {
       this.#store = store;
     }
@@ -19,8 +21,11 @@ export class RenderComponent {
   }
 
   renderElements() {
-    new Header().renderComponents();
-    new SelectsWrapper(this.#store, this.#service).renderComponents();
-    new InputWrapper(this.#store).renderComponents();
+    const header = new Header().renderComponents();
+    const selects = new SelectsWrapper(this.#store, this.#service).renderComponents();
+    const inputs = new InputWrapper(this.#store).renderComponents();
+
+    this.appendChildren(header, selects, inputs);
+    return this.getComponent();
   }
 }

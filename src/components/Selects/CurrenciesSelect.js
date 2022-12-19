@@ -1,7 +1,7 @@
 import { CommonComponent } from '@/common';
 import { Store } from '@/store';
 import { CoinsService } from '@/services';
-import { TagNames } from '@/utils';
+import { Events, TagNames } from '@/utils';
 
 export class CurrenciesSelect extends CommonComponent {
   #store;
@@ -20,21 +20,23 @@ export class CurrenciesSelect extends CommonComponent {
 
   renderCurrenciesSelect() {
     this.addClassName('changeable-Selects');
-    this.renderElement(TagNames.CURRENCY_ELEMENT, this.getComponent());
     this.#renderOptions();
     this.#addListener();
+    return this.getComponent();
   }
 
   #renderOptions() {
     this.#store.getState().currencies.forEach(item => {
       this.addOptions(item);
     });
+    return this;
   }
 
   #addListener() {
-    this.getComponent().addEventListener('change', event => {
+    this.getComponent().addEventListener(Events.CHANGE, event => {
       this.#store.setState({ selectedCurrency: event.target.value });
       this.#service.getCoins();
     });
+    return this;
   }
 }

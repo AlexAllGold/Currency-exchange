@@ -20,7 +20,6 @@ export class CoinsService {
 
   getCoins() {
     const { selectedCurrency } = this.#store.getState();
-    this.#store.notifyObserve();
     return this.#http
       .get(this.#url + selectedCurrency)
       .then(({ coins }) => this.#store.setState({ coins }))

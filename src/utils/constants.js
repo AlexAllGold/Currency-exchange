@@ -9,9 +9,19 @@ export const TagNames = {
 
   SELECT: 'select',
 
-  OPTION: 'option',
+  OPTION: 'option'
+};
+export const Events = {
+  CHANGE: 'change',
 
-  APP: '.app',
+  CLICK: 'click'
+};
+export const Attributes = {
+  DISABLED: 'disabled',
 
-  CURRENCY_ELEMENT: '.currency'
+  TYPE: 'type',
+
+  VALUE: 'value',
+
+  NUMBER: 'number'
 };
