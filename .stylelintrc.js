@@ -3,6 +3,7 @@ module.exports = {
         "stylelint-config-rational-order",
         "stylelint-prettier/recommended"],
     plugins: ["stylelint-order", "stylelint-scss"],
+    customSyntax: "postcss-scss",
     rules: {
         // Дополнительные правила
     }

@@ -1,10 +1,11 @@
-import Exchange from './component/exchange'
-import Buy from './component/buy'
-import Sell from './component/sell'
-import Send from './component/send'
-import Post from './Post'
-import './styles/styles.scss'
+import './styles/styles.scss';
+import { CoinsService } from '@/services';
+import { Store } from '@/store';
+import { Form } from '@/components/common';
+import { HttpClient } from '@/utils';
 
-const post = new Post('ToString')
-
-console.log('Post to string: ', post.toString())
+const store = new Store();
+const http = new HttpClient();
+const service = new CoinsService(store, http);
+const renderComponent = new Form(store, service);
+document.querySelector('.app').appendChild(renderComponent.renderElements());

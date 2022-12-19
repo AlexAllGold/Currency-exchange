@@ -1,94 +1,111 @@
-@import "~normalize.css";
+@import url('~normalize.css');
+
 :root {
-    --mainColor: #fdd08f;
-    --black : #000;
-    --orange : #ff9501;
-    --grey : #a6a6a6;
-    --white : #fdfdfd;
-}
-.container {
-    margin: 50px auto;
-    width: 500px;
-    height: 300px;
-    border-radius: 25px;
-    background: var(--mainColor);
-    color: var(--black);
-    font-family: "Gill Sans", sans-serif;
-    padding: 10px;
-    box-shadow: 4px 4px 4px #d5a867;
+  --main-color: #fdd08f;
+  --darck-grey: #686666;
+  --grey: #a6a6a6;
+  --white: #fdfdfd;
 }
 
-.link {
-    padding-right: 10px;
-    text-align: right;
-    font-size: 15px;
+.app {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  margin: 50px auto;
+  padding: 10px;
+  color: var(--black);
+  font-family: 'Gill Sans', sans-serif;
+  background: var(--main-color);
+  border-radius: 25px;
+  box-shadow: 4px 4px 4px #d5a867;
 }
-.title {
-    padding-left: 10px;
-    text-align: left;
-    font-size: 30px;
+
+h1 {
+  padding-top: 10px;
+  padding-left: 15px;
+  text-align: left;
 }
+
+.links {
+  position: absolute;
+  top: 45px;
+  right: 40px;
+}
+
 a {
-    padding-right: 10px;
-    text-align: right;
-    font-size: 15px;
+  color: var(--black);
+  font-size: 15px;
+  font-family: 'Gill Sans', sans-serif;
 }
-//h1 {
-//    padding-left: 15px;
-//    text-align: left;
-//}
 
-//.calc-screen {
-//    height: 125px;
-//    padding: 10px;
-//    display: grid;
-//    justify-items: end;
-//    align-items: end;
-//    margin-bottom: 25px;
-//    overflow: auto;
-//}
-//.calc-screen span {
-//    text-align: right;
-//    font-size: 4rem;
-//    margin: 0;
-//}
-//
-//.buttons {
-//    display: grid;
-//    grid-template-areas:
-//    "ac plus-minus percent division"
-//    "seven eight nine multi"
-//    "four five six minus"
-//    "one two three plus"
-//    "zero zero dot equals";
-//    grid-gap: 7px;
-//    justify-items: center;
-//}
-//.btn {
-//    width: 60px;
-//    height: 60px;
-//    background: #333;
-//    border-radius: 50%;
-//    text-align: center;
-//    line-height: 63px;
-//    font-size: 1.5rem;
-//    cursor: pointer;
-//    user-select: none;
-//}
-//.btn.zero {
-//    grid-area: zero;
-//    width: 100%;
-//    border-radius: 34px;
-//}
-//.btn:hover {
-//    filter: brightness(120%);
-//}
-//.btn:active {
-//    filter: brightness(90%);
-//}
-//.btn.bg-grey {
-//    background: var(--grey);
-//}
-//.btn.bg-orange {
-//    background: var(--orange);
-//}
+.currency {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  font-size: 20px;
+}
+
+.input-exchange-value {
+  position: absolute;
+  top: 170px;
+  left: 30px;
+  font-size: 20px;
+}
+
+select {
+  width: 215px;
+  height: 60px;
+  margin-left: 10px;
+  padding-left: 50px;
+  background: var(--white);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
+}
+
+input {
+  width: 210px;
+  height: 55px;
+  margin-left: 10px;
+  background: var(--white);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.exchange {
+  position: absolute;
+  top: 70px;
+  left: 235px;
+  width: 215px;
+  height: 55px;
+  color: var(--white);
+  background: var(--darck-grey);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.down {
+  position: absolute;
+  top: 230px;
+  left: 30px;
+  font-size: 10px;
+}
+
+button:active {
+  filter: brightness(90%);
+}
+
+input:active {
+  filter: brightness(90%);
+}
+
+select:active {
+  filter: brightness(90%);
+}
